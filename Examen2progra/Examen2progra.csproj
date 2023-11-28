@@ -67,18 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\Estilo.css" />
+    <Content Include="CSS\Estilos1.css" />
+    <Content Include="CSS\Login.css" />
     <Content Include="DB\script.sql" />
     <Content Include="Equipo.aspx" />
     <Content Include="Imagen\Imagen.jpg" />
+    <Content Include="Imagen\Imagen2.jpg" />
+    <Content Include="Imagen\OIP.jpg" />
+    <Content Include="Imagen\Usuario.jpeg" />
     <Content Include="Principal.aspx" />
     <Content Include="Tecnico.aspx" />
     <Content Include="Usuario.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\DBConn.cs" />
     <Compile Include="Clases\Equipo.cs" />
+    <Compile Include="Clases\Login.cs" />
     <Compile Include="Clases\Tecnico.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Equipo.aspx.cs">
@@ -123,6 +129,13 @@
     </Compile>
     <Compile Include="usuario.Master.designer.cs">
       <DependentUpon>usuario.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ namespace Examen2progra
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lusuario.Text = Clases.Login.Getnombre();
         }
     }
 }

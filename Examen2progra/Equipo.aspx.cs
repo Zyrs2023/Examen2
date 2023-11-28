@@ -133,7 +133,7 @@ namespace Examen2progra
                     {
                         sda.Fill(dt);
                         datagrid.DataSource = dt;
-                        datagrid.DataBind();  // actualizar el grid view
+                        datagrid.DataBind();  
                     }
 
                 }
