@@ -30,23 +30,19 @@ namespace Examen2progra
             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
         }
 
+        // En tu archivo .aspx.cs (por ejemplo, Principal.aspx.cs)
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Clases.Login objusuario = new Clases.Login(tlogin.Text, tclave.Text);  
+            Clases.Usuario objusuario = new Clases.Usuario(tcorreo.Text, tclave.Text);  // instancia = copia de la clase
 
-            if (Clases.Login.ValidarLogin() > 0)
+            if (Clases.Usuario.ValidarLogin() > 0)
             {
                 Response.Redirect("Principal.aspx");
             }
-            else
-            {
-               
-                string mensajeError = "Correo o clave incorrectos. Por favor, inténtalo de nuevo.";
-                alertas(mensajeError);
-            }
-
         }
 
-        
+
+
+
     }
 }

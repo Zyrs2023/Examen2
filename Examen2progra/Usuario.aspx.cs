@@ -16,6 +16,8 @@ namespace Examen2progra
             {
                 LlenarGrid();
             }
+            
+           
         }
 
         public void alertas(string texto)
@@ -56,13 +58,14 @@ namespace Examen2progra
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            int resultado = Clases.Usuario.Agregar(tnombre.Text, tcorreo.Text, ttelefono.Text);
+            int resultado = Clases.Usuario.Agregar(tnombre.Text, tcorreo.Text, ttelefono.Text, tclave.Text);
             if (resultado > 0)
             {
                 alertas("Usuario ha sido ingresado con exito");
                 tnombre.Text = string.Empty;
                 tcorreo.Text = string.Empty;
                 ttelefono.Text = string.Empty;
+                tclave.Text = string.Empty;
                 LlenarGrid();
             }
             else
@@ -95,8 +98,9 @@ namespace Examen2progra
             string nombre = tnombre.Text;
             string email = tcorreo.Text;
             string telefono = ttelefono.Text;
+            string clave = tclave.Text;
 
-            int resultado = Clases.Usuario.Modificar(UsuarioID, nombre, email, telefono);
+            int resultado = Clases.Usuario.Modificar(UsuarioID, nombre, email, telefono,clave);
             if (resultado > 0)
             {
                 alertas("Usuario ha sido actualizado con éxito");
@@ -104,6 +108,7 @@ namespace Examen2progra
                 tnombre.Text = string.Empty;
                 tcorreo.Text = string.Empty;
                 ttelefono.Text = string.Empty;
+                tclave.Text = string.Empty;
                 LlenarGrid();
             }
             else
@@ -138,6 +143,11 @@ namespace Examen2progra
                 }
 
             }
+        }
+
+        internal string GetNombre()
+        {
+            throw new NotImplementedException();
         }
     }
 }

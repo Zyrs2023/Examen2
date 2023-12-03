@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,26 +70,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asignacion.aspx" />
     <Content Include="CSS\Estilos1.css" />
     <Content Include="CSS\Login.css" />
-    <Content Include="DB\script.sql" />
+    <Content Include="DB\BD.sql" />
+    <Content Include="DetalleReparacion.aspx" />
     <Content Include="Equipo.aspx" />
     <Content Include="Imagen\Imagen.jpg" />
     <Content Include="Imagen\Imagen2.jpg" />
     <Content Include="Imagen\OIP.jpg" />
     <Content Include="Imagen\Usuario.jpeg" />
     <Content Include="Principal.aspx" />
+    <Content Include="Reparacion.aspx" />
     <Content Include="Tecnico.aspx" />
     <Content Include="Usuario.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asignacion.aspx.cs">
+      <DependentUpon>Asignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Asignacion.aspx.designer.cs">
+      <DependentUpon>Asignacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Asignacion.cs" />
     <Compile Include="Clases\DBConn.cs" />
+    <Compile Include="Clases\DetalleReparacion.cs" />
     <Compile Include="Clases\Equipo.cs" />
-    <Compile Include="Clases\Login.cs" />
+    <Compile Include="Clases\Reparacion.cs" />
     <Compile Include="Clases\Tecnico.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="DetalleReparacion.aspx.cs">
+      <DependentUpon>DetalleReparacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleReparacion.aspx.designer.cs">
+      <DependentUpon>DetalleReparacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Equipo.aspx.cs">
       <DependentUpon>Equipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,6 +131,13 @@
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reparacion.aspx.cs">
+      <DependentUpon>Reparacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reparacion.aspx.designer.cs">
+      <DependentUpon>Reparacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico.aspx.cs">
       <DependentUpon>Tecnico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

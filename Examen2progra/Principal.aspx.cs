@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Examen2progra.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace Examen2progra
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lusuario.Text = Clases.Login.Getnombre();
+            lusuario.Text = Clases.Usuario.Getnombre();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Claims;
 using System.Web;
 using Examen2progra.Clases;
 
@@ -13,18 +14,120 @@ namespace Examen2progra.Clases
         public string Nombre { get; set; }
         public string CorreoElectronico { get; set; }
         public string Telefono { get; set; }
+        public string Clave { get; set; }
 
-        public Usuario(int usuarioID, string nombre, string correoElectronico, string telefono)
+        // Constructor
+        public Usuario(int usuarioID, string nombre, string correoElectronico, string telefono, string clave)
         {
-            UsuarioID =usuarioID;
+            UsuarioID = usuarioID;
             Nombre = nombre;
             CorreoElectronico = correoElectronico;
             Telefono = telefono;
+            Clave = clave;
         }
 
+        // Constructor vacío
         public Usuario() { }
+        private static string correo;
+        private static string clave;
+        private static string nombre;
 
-        public static int Agregar(string Nombre, string CorreoElectronico, string Telefono)
+        // constructor -- inicializar los atributos 
+        public Usuario(string Correo, string Clave, string Nombre)
+        {
+            correo = Correo;
+            clave = Clave;
+            nombre = Nombre;
+        }
+
+        public Usuario(string Correo, string Clave)
+        {
+            correo = Correo;
+            clave = Clave;
+
+        }
+       
+
+        // Getter = funcion (return) mostrar los valores de atributos
+        // setter =  metodo (void) asignar valores a los atributos
+
+        public static string Getcorreo()
+        {
+            return correo;
+        }
+
+        public static string Getnombre()
+        {
+            return nombre;
+        }
+        public static string Getclave()
+        {
+            return clave;
+        }
+
+        public void Setcorreo(string email)
+        {
+            correo = email;
+        }
+
+        public void Setclave(string contrasena)
+        {
+            clave = contrasena;
+        }
+
+        // Método para validar usuario
+        public static int ValidarLogin()
+        {
+            int retorno = 0;
+
+            SqlConnection Conn = new SqlConnection();
+            try
+            {
+                using (Conn = DBConn.obtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("ValidarUsuario", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@CorreoElectronico", correo));
+                    cmd.Parameters.Add(new SqlParameter("@Clave", clave));
+
+                    retorno = cmd.ExecuteNonQuery();
+                    // reader = lector = lectura = rdr
+                    using (SqlDataReader lectura = cmd.ExecuteReader())
+                    {
+                        if (lectura.Read())
+                        {
+                            retorno = 1;
+                            nombre = lectura[0].ToString();
+                        }
+                        else
+                        {
+                            retorno = -1;
+                        }
+
+                    }
+
+
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                retorno = -1;
+            }
+            finally
+            {
+                Conn.Close();
+                Conn.Dispose();
+            }
+
+            return retorno;
+        }
+
+
+
+
+        public static int Agregar(string Nombre, string CorreoElectronico, string Telefono, string Clave)
         {
             int retorno = 0;
 
@@ -39,6 +142,7 @@ namespace Examen2progra.Clases
                     cmd.Parameters.Add(new SqlParameter("@Nombre", Nombre));
                     cmd.Parameters.Add(new SqlParameter("@CorreoElectronico", CorreoElectronico));
                     cmd.Parameters.Add(new SqlParameter("@Telefono", Telefono));
+                    cmd.Parameters.Add(new SqlParameter("@Clave", Clave));
 
                     retorno = cmd.ExecuteNonQuery();
                 }
@@ -79,7 +183,7 @@ namespace Examen2progra.Clases
 
             return retorno;
         }
-        public static int Modificar(int UsuarioID, string Nombre, string CorreoElectronico, string Telefono)
+        public static int Modificar(int UsuarioID, string Nombre, string CorreoElectronico, string Telefono,string Clave)
         {
             int retorno = 0;
 
@@ -96,6 +200,7 @@ namespace Examen2progra.Clases
                     cmd.Parameters.Add(new SqlParameter("@Nombre", Nombre));
                     cmd.Parameters.Add(new SqlParameter("@CorreoElectronico", CorreoElectronico));
                     cmd.Parameters.Add(new SqlParameter("@Telefono", Telefono));
+                    cmd.Parameters.Add(new SqlParameter("@Clave", Clave));
 
                     retorno = cmd.ExecuteNonQuery();
                 }
@@ -194,6 +299,8 @@ namespace Examen2progra.Clases
 
             return tipos;
         }
+       
+
 
     }
 }

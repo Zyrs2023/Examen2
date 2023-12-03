@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Examen2progra.WebForm1" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,11 +21,12 @@
             <h2 class="login-title">Bienvenido</h2>
             <div class="login-form">
                 <div class="mb-3">
-                    <asp:TextBox ID="tlogin" class="form-control" aria-describedby="emailHelp" runat="server" placeholder="Correo"></asp:TextBox>
+                    <asp:TextBox ID="tcorreo" class="form-control" aria-describedby="emailHelp" runat="server" placeholder="Correo"></asp:TextBox>
                 </div>
                 <div class="mb-3">
                     <asp:TextBox ID="tclave" class="form-control" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
+                
                 <div class="mb-3 form-check">
                     <asp:CheckBox ID="chkRememberMe" class="form-check-input" runat="server" />
                     <label class="form-check-label" for="chkRememberMe">Recordar</label>

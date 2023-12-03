@@ -24,6 +24,7 @@
         Nombre: <asp:TextBox ID="tnombre" class="form-control" runat="server"></asp:TextBox>
         CorreoElectronico: <asp:TextBox ID="tcorreo" class="form-control" runat="server"></asp:TextBox>
         Telefono: <asp:TextBox ID="ttelefono" class="form-control" runat="server"></asp:TextBox>
+        Clave: <asp:TextBox ID="tclave" class="form-control" runat="server"></asp:TextBox>
     </div>
      <div class="container text-center">
     <asp:Button ID="Button1" class="btn btn-primary btn-custom" runat="server" Text="Agregar" OnClick="Button1_Click" />
