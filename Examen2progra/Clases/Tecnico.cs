@@ -81,6 +81,7 @@ namespace Examen2progra.Clases
 
             return retorno;
         }
+
         public static int Modificar(int TecnicoID, string Nombre, string Especialidad)
         {
             int retorno = 0;

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Examen2progra.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ValidarLogin.aspx.cs" Inherits="Examen2progra.WebForm1" %>
 
 
 <!DOCTYPE html>

@@ -33,12 +33,17 @@ namespace Examen2progra
         // En tu archivo .aspx.cs (por ejemplo, Principal.aspx.cs)
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Clases.Usuario objusuario = new Clases.Usuario(tcorreo.Text, tclave.Text);  // instancia = copia de la clase
-
-            if (Clases.Usuario.ValidarLogin() > 0)
+            Clases.Login objusuario = new Clases.Login();
+            objusuario.SetCorreo(tcorreo.Text);
+            objusuario.SetClave(tclave.Text);
+            if (Clases.Login.ValidarLogin() > 0)
             {
                 Response.Redirect("Principal.aspx");
             }
+            else {
+                alertas("Correo o clave incorrecta");
+            }
+
         }
 
 

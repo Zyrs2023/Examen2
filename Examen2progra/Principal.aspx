@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CSS/Estilos1.css" rel="stylesheet" />
     Bienvenido: <asp:Label ID="lusuario" runat="server" Text="Label"></asp:Label>
+   NombreRol:  <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-container">

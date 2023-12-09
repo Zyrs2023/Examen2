@@ -11,7 +11,7 @@ namespace Examen2progra
 {
 
 
-    public partial class Usuario
+    public partial class RolEmpleado
     {
 
         /// <summary>
@@ -42,31 +42,13 @@ namespace Examen2progra
         protected global::System.Web.UI.WebControls.TextBox tid;
 
         /// <summary>
-        /// Control tnombre.
+        /// Control trol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tnombre;
-
-        /// <summary>
-        /// Control tcorreo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tcorreo;
-
-        /// <summary>
-        /// Control ttelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ttelefono;
+        protected global::System.Web.UI.WebControls.TextBox trol;
 
         /// <summary>
         /// Control Button1.

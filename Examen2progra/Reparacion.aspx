@@ -15,9 +15,8 @@
         <br />
         <br />
         <asp:GridView runat="server" ID="datagrid" PageSize="10" HorizontalAlign="Center"
-            CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header"
-            RowStyle-CssClass="rows" AllowPaging="True" />
-
+    CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header"
+    RowStyle-CssClass="rows" AllowPaging="True" />
         <br />
         <br />
         <br />
@@ -51,11 +50,11 @@
         <asp:Button ID="Button4" runat="server" class="btn btn-primary btn-custom" Text="Consultar" OnClick="Button4_Click" />
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>Innovasolucionescr.com</p>
-        </div>
-    </footer>
+   <footer class="footer">
+    <div class="container">
+        <p>Innovasolucionescr.com</p>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

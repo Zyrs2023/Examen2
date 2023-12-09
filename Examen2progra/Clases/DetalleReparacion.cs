@@ -144,7 +144,7 @@ namespace Examen2progra.Clases
                 }
                 catch (System.Data.SqlClient.SqlException ex)
                 {
-                    // Manejar la excepción según tus necesidades
+                    
                 }
             }
 
@@ -185,7 +185,7 @@ namespace Examen2progra.Clases
                 }
                 catch (System.Data.SqlClient.SqlException ex)
                 {
-                    // Manejar la excepción según tus necesidades
+                    
                 }
             }
 

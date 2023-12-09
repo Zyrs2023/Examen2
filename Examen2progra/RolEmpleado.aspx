@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="Usuario.aspx.cs" Inherits="Examen2progra.Usuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="RolEmpleado.aspx.cs" Inherits="Examen2progra.RolEmpleado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
     <link href="CSS/Estilos1.css" rel="stylesheet" />
         <div class="container text-caenter">
-        <h1>Usuario</h1>
+        <h1>Rol Empleado</h1>
     </div>
     <div>
     <br />
@@ -20,10 +20,10 @@
 </div>
     <div class="container text-center">
         Filtro: <asp:TextBox ID="txtFiltro" class="form-control" runat="server"></asp:TextBox>
-        UsuarioID: <asp:TextBox ID="tid" class="form-control" runat="server"></asp:TextBox>
-        Nombre: <asp:TextBox ID="tnombre" class="form-control" runat="server"></asp:TextBox>
-        CorreoElectronico: <asp:TextBox ID="tcorreo" class="form-control" runat="server"></asp:TextBox>
-        Telefono: <asp:TextBox ID="ttelefono" class="form-control" runat="server"></asp:TextBox>
+        IdEmpleado: <asp:TextBox ID="tid" class="form-control" runat="server"></asp:TextBox>
+        IdRol: <asp:TextBox ID="trol" class="form-control" runat="server"></asp:TextBox>
+        
+      
         
     </div>
      <div class="container text-center">

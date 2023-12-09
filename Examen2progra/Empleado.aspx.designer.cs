@@ -11,7 +11,7 @@ namespace Examen2progra
 {
 
 
-    public partial class Usuario
+    public partial class Empleado
     {
 
         /// <summary>
@@ -60,13 +60,13 @@ namespace Examen2progra
         protected global::System.Web.UI.WebControls.TextBox tcorreo;
 
         /// <summary>
-        /// Control ttelefono.
+        /// Control tclave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ttelefono;
+        protected global::System.Web.UI.WebControls.TextBox tclave;
 
         /// <summary>
         /// Control Button1.

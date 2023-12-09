@@ -44,8 +44,16 @@
                             <li class="nav-item <%= Request.Url.LocalPath.Trim().EndsWith("DetalleReparacion.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
                                 <a class="nav-link" href="DetalleReparacion.aspx">Detalle Reparacion</a>
                             </li>
+                           <li class="nav-item <%= Request.Url.LocalPath.EndsWith("RolEmpleado.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
+                                <a class="nav-link" href="RolEmpleado.aspx">Roles de empleados</a>
+                            </li>
+                            <li class="nav-item <%= Request.Url.LocalPath.EndsWith("Rol.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
+                                 <a class="nav-link" href="Rol.aspx">Roles</a>
+                            </li>
+                            <li class="nav-item <%= Request.Url.LocalPath.EndsWith("Empleado.aspx", StringComparison.OrdinalIgnoreCase) && !Request.Url.LocalPath.EndsWith("RolEmpleado.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
+                                <a class="nav-link" href="Empleado.aspx">Empleado</a>
+                            </li>
                         </ul>
-                    
                     </div>
                 </div>
             </nav>

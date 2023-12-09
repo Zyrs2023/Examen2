@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using Examen2progra.Clases;
+using System.Data;
+using System.Linq;
+using System.Web;
 
 namespace Examen2progra.Clases
 {
-    public class Usuario
+    public class Rol
     {
-        public int UsuarioID { get; set; }
+        public int Codigo { get; set; }
         public string Nombre { get; set; }
-        public string CorreoElectronico { get; set; }
-        public string Telefono { get; set; }
+        
+       
+     
 
         // Constructor
-        public Usuario(int usuarioID, string nombre, string correoElectronico, string telefono)
+        public Rol(int codigo, string nombre)
         {
-            UsuarioID = usuarioID;
+            Codigo = codigo;
             Nombre = nombre;
-            CorreoElectronico = correoElectronico;
-            Telefono = telefono;
+           
         }
 
         // Constructor vacío
-        public Usuario() { }
+        public Rol() { }
 
-        public static int Agregar(string Nombre, string CorreoElectronico, string Telefono )
+        public static int Agregar(string Nombre)
         {
             int retorno = 0;
 
@@ -33,13 +34,41 @@ namespace Examen2progra.Clases
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("AgregarUsuario", conn)
+                    SqlCommand cmd = new SqlCommand("sp_AgregarRol", conn)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
+                   
                     cmd.Parameters.Add(new SqlParameter("@Nombre", Nombre));
-                    cmd.Parameters.Add(new SqlParameter("@CorreoElectronico", CorreoElectronico));
-                    cmd.Parameters.Add(new SqlParameter("@Telefono", Telefono));
+                    
+
+
+                    retorno = cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    retorno = -1;
+                    Console.WriteLine("Error SQL: " + ex.Message);
+                }
+            }
+
+            return retorno;
+
+        }
+
+        public static int BorrarRol(int Codigo)
+        {
+            int retorno = 0;
+
+            using (SqlConnection conn = DBConn.obtenerConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_BorrarRol", conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
                    
 
                     retorno = cmd.ExecuteNonQuery();
@@ -52,10 +81,8 @@ namespace Examen2progra.Clases
             }
 
             return retorno;
-
         }
-
-        public static int BorrarUsuario(int id)
+        public static int Modificar(int Codigo, string Nombre)
         {
             int retorno = 0;
 
@@ -63,39 +90,13 @@ namespace Examen2progra.Clases
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("BorrarUsuario", conn)
+                    SqlCommand cmd = new SqlCommand("sp_ModificarRol", conn)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", id));
-
-                    retorno = cmd.ExecuteNonQuery();
-                }
-                catch (SqlException ex)
-                {
-                    retorno = -1;
-                    Console.WriteLine("Error SQL: " + ex.Message);
-                }
-            }
-
-            return retorno;
-        }
-        public static int Modificar(int UsuarioID, string Nombre, string CorreoElectronico, string Telefono)
-        {
-            int retorno = 0;
-
-            using (SqlConnection conn = DBConn.obtenerConexion())
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("ModificarUsuario", conn)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", UsuarioID));
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
                     cmd.Parameters.Add(new SqlParameter("@Nombre", Nombre));
-                    cmd.Parameters.Add(new SqlParameter("@CorreoElectronico", CorreoElectronico));
-                    cmd.Parameters.Add(new SqlParameter("@Telefono", Telefono));
+                 
 
 
 
@@ -112,15 +113,15 @@ namespace Examen2progra.Clases
 
         }
 
-        public static List<Usuario> ConsultarEquipoConFiltro(int UsuarioID)
+        public static List<Rol> ConsultarEquipoConFiltro(int Codigo)
         {
-            List<Usuario> tipos = new List<Usuario>();
+            List<Rol> tipos = new List<Rol>();
 
             using (SqlConnection conn = DBConn.obtenerConexion())
-            using (SqlCommand cmd = new SqlCommand("ConsultarEquipoConFiltro", conn))
+            using (SqlCommand cmd = new SqlCommand("sp_ConsultarRolConFiltro", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@UsuarioID", SqlDbType.Int).Value = UsuarioID;
+                cmd.Parameters.Add("@Codigo", SqlDbType.Int).Value = Codigo;
 
                 try
                 {
@@ -130,12 +131,11 @@ namespace Examen2progra.Clases
                     {
                         while (reader.Read())
                         {
-                            Usuario tipo = new Usuario
+                            Rol tipo = new Rol
                             {
-                                UsuarioID = reader.GetInt32(0),
+                                Codigo = reader.GetInt32(0),
                                 Nombre = reader.GetString(1),
-                                CorreoElectronico = reader.GetString(2),
-                                Telefono = reader.GetString(3),
+                                
                             };
 
                             tipos.Add(tipo);
@@ -151,12 +151,12 @@ namespace Examen2progra.Clases
             return tipos;
         }
 
-        public static List<Usuario> ObtenerTipos()
+        public static List<Rol> ObtenerTipos()
         {
-            List<Usuario> tipos = new List<Usuario>();
+            List<Rol> tipos = new List<Rol>();
 
             using (SqlConnection conn = DBConn.obtenerConexion())
-            using (SqlCommand cmd = new SqlCommand("ConsultarEquipoConFiltro", conn))
+            using (SqlCommand cmd = new SqlCommand("sp_ConsultarRolConFiltro", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -168,12 +168,11 @@ namespace Examen2progra.Clases
                     {
                         while (reader.Read())
                         {
-                            Usuario tipo = new Usuario
+                            Rol tipo = new Rol
                             {
-                                UsuarioID = reader.GetInt32(0),
+                                Codigo = reader.GetInt32(0),
                                 Nombre = reader.GetString(1),
-                                CorreoElectronico = reader.GetString(2),
-                                Telefono = reader.GetString(3),
+                                
                             };
 
                             tipos.Add(tipo);
@@ -188,14 +187,5 @@ namespace Examen2progra.Clases
 
             return tipos;
         }
-
-       
     }
 }
-
-
-
-
-
-
-

@@ -73,7 +73,7 @@
     <Content Include="Asignacion.aspx" />
     <Content Include="CSS\Estilos1.css" />
     <Content Include="CSS\Login.css" />
-    <Content Include="DB\BD.sql" />
+    <Content Include="DB\script.sql" />
     <Content Include="DetalleReparacion.aspx" />
     <Content Include="Equipo.aspx" />
     <Content Include="Imagen\Imagen.jpg" />
@@ -82,10 +82,13 @@
     <Content Include="Imagen\Usuario.jpeg" />
     <Content Include="Principal.aspx" />
     <Content Include="Reparacion.aspx" />
+    <Content Include="RolEmpleado.aspx" />
     <Content Include="Tecnico.aspx" />
     <Content Include="Usuario.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="ValidarLogin.aspx" />
+    <Content Include="Empleado.aspx" />
+    <Content Include="Rol.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asignacion.aspx.cs">
@@ -98,8 +101,12 @@
     <Compile Include="Clases\Asignacion.cs" />
     <Compile Include="Clases\DBConn.cs" />
     <Compile Include="Clases\DetalleReparacion.cs" />
+    <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\Equipo.cs" />
+    <Compile Include="Clases\Login.cs" />
     <Compile Include="Clases\Reparacion.cs" />
+    <Compile Include="Clases\Rol.cs" />
+    <Compile Include="Clases\RolesEmpleados.cs" />
     <Compile Include="Clases\Tecnico.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DetalleReparacion.aspx.cs">
@@ -138,6 +145,13 @@
     <Compile Include="Reparacion.aspx.designer.cs">
       <DependentUpon>Reparacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RolEmpleado.aspx.cs">
+      <DependentUpon>RolEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RolEmpleado.aspx.designer.cs">
+      <DependentUpon>RolEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico.aspx.cs">
       <DependentUpon>Tecnico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,12 +173,26 @@
     <Compile Include="usuario.Master.designer.cs">
       <DependentUpon>usuario.Master</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ValidarLogin.aspx.cs">
+      <DependentUpon>ValidarLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ValidarLogin.aspx.designer.cs">
+      <DependentUpon>ValidarLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.aspx.cs">
+      <DependentUpon>Empleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado.aspx.designer.cs">
+      <DependentUpon>Empleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rol.aspx.cs">
+      <DependentUpon>Rol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rol.aspx.designer.cs">
+      <DependentUpon>Rol.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
