@@ -301,7 +301,7 @@ namespace Examen2progra.Clases
                                 infoEmpleado.SetCorreo(reader.GetString(1));
                                 infoEmpleado.SetClave(reader.GetString(2));
                                 infoEmpleado.SetNombre(reader.GetString(3));
-                               .
+                               
 
                                 empleadoInfo.Add(infoEmpleado);
                             }
@@ -311,7 +311,7 @@ namespace Examen2progra.Clases
             }
             catch (Exception ex)
             {
-                
+
             }
             finally
             {
