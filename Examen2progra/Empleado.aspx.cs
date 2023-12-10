@@ -34,6 +34,8 @@ namespace Examen2progra
 
         protected void LlenarGrid()
         {
+            
+
             string constr = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
